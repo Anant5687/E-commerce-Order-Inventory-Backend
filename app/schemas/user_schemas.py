@@ -6,7 +6,7 @@ from pydantic import BaseModel, ConfigDict, EmailStr
 class UserRequest(BaseModel):
     name: str
     email: EmailStr
-    phone: int
+    phone: str
     password: str
 
 
@@ -14,7 +14,7 @@ class UserResponseData(BaseModel):
     id: str
     name: str
     email: EmailStr
-    phone: int
+    phone: str
     created_at: datetime
     updated_at: datetime
 
