@@ -10,7 +10,9 @@ class UsersModels(BASE, SoftDeleteMixin, TimestampMixin):
 
     __tablename__ = "users"
 
-    id = Column(String, primary_key=True, unique=True, default=lambda: uuid.uuid4())
+    id = Column(
+        String, primary_key=True, unique=True, default=lambda: str(uuid.uuid4())
+    )
 
     name = Column(String, nullable=False, unique=True)
 
