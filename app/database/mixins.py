@@ -19,12 +19,10 @@ class TimestampMixin:
 
 class SoftDeleteMixin:
     is_deleted: Mapped[bool] = mapped_column(
-        Boolean, server_default=False, default=False, nullable=False
+        Boolean, server_default="false", default=False, nullable=False
     )
 
-    deleted_at: Mapped[datetime] = mapped_column(
+    deleted_at: Mapped[datetime | None] = mapped_column(
         DateTime(timezone=True),
-        server_default=func.now(),
-        onupdate=func.now(),
-        nullable=False,
+        nullable=True,
     )
